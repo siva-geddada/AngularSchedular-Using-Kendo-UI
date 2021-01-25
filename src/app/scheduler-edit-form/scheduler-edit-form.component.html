@@ -1,0 +1,59 @@
+<div *ngIf="active" class="card">
+  <form [formGroup]="editForm" class="k-form-inline" id="eventForm">
+    <fieldset>
+      <legend>{{ isNew ? "Add New Event" : "Edit Event" }}</legend>
+
+      <div class="k-form-field">
+        <span>Title</span>
+        <input class="k-textbox" placeholder="Title" formControlName="Title" />
+      </div>
+      <div class="k-form-field k-datetime-picker-wrapper">
+        <span>Start</span>
+        <kendo-datepicker formControlName="Start"> </kendo-datepicker>
+        <kendo-timepicker
+          formControlName="Start"
+          *ngIf="!editForm.controls.IsAllDay.value"
+        >
+        </kendo-timepicker>
+      </div>
+      <div class="k-form-field k-datetime-picker-wrapper">
+        <span>End</span>
+        <kendo-datepicker formControlName="End"> </kendo-datepicker>
+        <kendo-timepicker
+          formControlName="End"
+          *ngIf="!editForm.controls.IsAllDay.value"
+        >
+        </kendo-timepicker>
+      </div>
+      <div class="k-form-field">
+        <input
+          type="checkbox"
+          id="k-is-allday-chkbox"
+          class="k-checkbox"
+          formControlName="IsAllDay"
+        />
+        <label class="k-checkbox-label" for="k-is-allday-chkbox"
+          >All Day Event</label
+        >
+      </div>
+      <!-- <div>
+        <kendo-recurrence-editor
+          *ngIf="isEditingSeries"
+          formControlName="RecurrenceRule"
+        >
+        </kendo-recurrence-editor>
+      </div> -->
+    </fieldset>
+    <div class="text-right">
+      <button kendoButton (click)="onCancel($event)">Cancel</button>
+      <button
+        kendoButton
+        (click)="onSave($event)"
+        [disabled]="!editForm.valid"
+        [primary]="true"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>

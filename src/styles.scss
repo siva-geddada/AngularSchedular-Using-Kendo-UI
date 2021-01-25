@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+.k-dialog-titlebar {
+    background-color: #0c0c0c;
+}
+.k-button-group .k-button.k-state-active {
+    border-color: #a29e9e;
+    color: #ffffff;
+    background-color: #0c0c0c;
+    background-image: linear-gradient(rgb(171 159 154 / 20%), rgba(255, 138, 88, 0));
+}
+.k-dialog-button-layout-stretched .k-primary:not(:hover):not(.k-state-hover):not(:active):not(.k-state-active) {
+    color: #0c0c0c;
+}
+.k-event {
+    background-color: #676363;
+}
